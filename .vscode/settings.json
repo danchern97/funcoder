@@ -1,0 +1,31 @@
+{
+  // editor settings
+  "editor.rulers": [80, 100, 120, 160],
+
+  // python: static analysis
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.typeCheckingMode": "standard",
+  "python.defaultInterpreterPath": "~/.conda/envs/funcoder/python",
+  "python.analysis.useLibraryCodeForTypes": true,
+
+  // python: formatter
+  "ruff.organizeImports": true,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+
+  // python: testing
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "python.testing.pytestArgs": [],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+
+  // other languages
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

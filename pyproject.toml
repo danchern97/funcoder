@@ -1,0 +1,39 @@
+
+[project]
+name = "funcoder"
+version = "0.1.0"
+
+description = "Divide-and-Conquer Meets Consensus: Unleashing the Power of Functions in Code Generation"
+dynamic = ["dependencies"]
+license = { file = "LICENSE" }
+readme = "README.md"
+
+#################################### build ####################################
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["build", "setuptools"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.setuptools.package-dir]
+"funcoder" = "funcoder"
+
+################################## toolchain ##################################
+
+[tool.ruff]
+exclude = [".untracked/"]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+ignore = [
+    "F541", # f-string without any placeholders
+    "E731", # Do not assign a `lambda` expression, use a `def`
+]
+
+[tool.pytest.ini_options]
+# to unit test llm features, configure `[llm.for_unittest]` under
+# `funcoder/eval/config.toml`
+testpaths = ["tests"]

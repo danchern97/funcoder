@@ -1,0 +1,30 @@
+{
+  "$schema": "../../funcoder/eval/hparams.schema.json",
+  "task": {
+    "task_name": "MATH",
+    "task_samples": 500,
+    "task_llm_engine": "gpt_4_turbo_231106"
+  },
+  "langrt": "py3",
+  "llm_engine": "gpt_4o_mini_240718",
+  "method": {
+    "method_name": "funcoder",
+    "dfs_max_depth": 6,
+    "divide_gen_prompt": "maths_divide",
+    "divide_temperature": 0.2,
+    "divide_retries": 3,
+    "fc_root_test_prompt": "humaneval_funccall",
+    "fc_root_sys_test_prompt": null,
+    "fc_branch_test_prompt": "humaneval_funccall",
+    "fc_branch_sys_test_prompt": null,
+    "fc_temperature": 0.2,
+    "fc_retries": 3,
+    "conquer_gen_prompt": "maths_conquer",
+    "conquer_temperature": 0.8,
+    "conquer_samples": 10,
+    "conquer_min_samples": 5,
+    "conquer_retries": 3
+  },
+  "results_dir": null,
+  "wandb_run_id": null
+}
