@@ -403,7 +403,11 @@ class PyParser(LrtParser):
     def fmt_code(self, code: CodeBlock) -> CodeBlock:
         # i know ast eats up comments and other styles that matters a lot to code
         # comprehension. so we'll update them back later as another pass.
-        code = black.format_str(code, mode=black.Mode())
+        # ADDEDED by RSC: formatting sometimes fails, so we will skip it.
+        try:
+            code = black.format_str(code, mode=black.Mode())
+        except Exception as e:
+            pass
         return code
 
     def fmt_imports(self, imports: list[LrtImport]) -> CodeBlock:

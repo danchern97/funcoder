@@ -143,7 +143,9 @@ These are the test cases extracted from the description, which are related to `g
             else:
                 # test_type = TestType.call
                 test_type = TestType.unittest
-                lines[-1] = "return " + lines[-1]
+                # ADDED BY RSC: small fix.
+                if "return" not in lines[-1] and 'raise' not in lines[-1]:
+                    lines[-1] = "return " + lines[-1]
             lines = [f"    {line}\n" for line in lines]
             code = "".join(lines)
             code = f"def _test_{func.name}_{_make_random_sig()}(_seed: int):\n{code}"

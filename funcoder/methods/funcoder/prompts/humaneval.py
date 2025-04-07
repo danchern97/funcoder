@@ -467,7 +467,9 @@ Store your test cases for `{func_name}(...)` as function calls, one per line. Th
         for invoke in raw_invokes:
             lines = invoke.split("\n")
             # previous lines may represent intermediate variables
-            lines[-1] = "return " + lines[-1]
+            # ADDED BY RSC: small fix.
+            if "return" not in lines[-1] and 'raise' not in lines[-1]:
+                lines[-1] = "return " + lines[-1]
             lines = [f"    {line}\n" for line in lines]
             code = "".join(lines)
             code = f"def _test_main(_seed: int):\n{code}"
